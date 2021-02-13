@@ -30,7 +30,7 @@
 (defn create [{:keys [:host :port :url :client-config] :as opts}]
   (let [uri (if url
               url
-              (str (or host "http://127.0.0.1") ":" port))]
+              (str (or host "ws://127.0.0.1") ":" port))]
     (if (websocket-connection? uri)
       (web3-core/websocket-provider uri {:client-config (merge {:max-received-frame-size 100000000
                                                                 :max-received-message-size 100000000}
